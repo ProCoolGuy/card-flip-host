@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
-
+const database = require('../utils/database');
 /* GET home page. */
 router.get('/', function (req, res, next) {
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '',
     database: 'gamehistory',
   });
   connection.connect();
@@ -25,7 +25,7 @@ router.put('/', function (req, res, next) {
   const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '',
     database: 'gamehistory',
   });
   req = req.body.req;
