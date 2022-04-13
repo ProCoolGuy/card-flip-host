@@ -6,7 +6,7 @@ const routes = require('./routes');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 var cookieParser = require('cookie-parser');
-const { initDatabase, initTable} = require('./utils/database');
+const { initDatabase } = require('./utils/database');
 
 app.use(cors());
 app.use(compression());
@@ -15,7 +15,6 @@ app.use(bodyparser.json());
 app.use(cookieParser());
 
 initDatabase();
-initTable();
 
 app.use('/history', routes);
 app.use(require('express').static(resolvePath(__dirname, './build')));
